@@ -21,6 +21,10 @@ To turn off system animations and avoid flakiness/this error:
 
 `android.support.test.espresso.NoActivityResumedException: No activities in stage RESUMED. Did you forget to launch the activity. (test.getActivity() or similar)?`
 
-Run this script:
+Uncomment this line in the manifest so the app will request the permission (this could be a separate build flavor so it doesn't touch the real app, but for the purposes of this demo it doesn't seem worth it):
+
+`<!--<uses-permission android:name="android.permission.SET_ANIMATION_SCALE" />-->`
+
+Then run this script:
 
 `./set_animation_permissions.sh com.emmaguy.espressowatch`
