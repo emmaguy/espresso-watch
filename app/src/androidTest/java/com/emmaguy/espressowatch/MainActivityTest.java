@@ -21,6 +21,6 @@ public class MainActivityTest {
     @Test public void textShouldSayHelloSquareWorld() throws Exception {
         Spoon.screenshot(mActivityRule.getActivity(), "initial_state");
 
-        onView(withId(R.id.text)).check(matches(withText(R.string.hello_square)));
+        onView(withId(R.id.welcome_textview)).check(matches(withText(R.string.hello_world)));
     }
 }
