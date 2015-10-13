@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="com.emmaguy.espressowatch"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- So we can disable window animations, to avoid flakiness in our tests -->
+    <uses-permission android:name="android.permission.SET_ANIMATION_SCALE" />
+
+    <!-- To be able to save and retrieve screenshots of the tests running -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+</manifest>

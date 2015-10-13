@@ -1,10 +1,17 @@
 apply plugin: 'com.android.application'
 
-
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
 
+    productFlavors {
+        dev {
+
+        }
+        production {
+
+        }
+    }
     defaultConfig {
         applicationId "com.emmaguy.espressowatch"
         minSdkVersion 21
@@ -19,12 +26,20 @@ android {
     }
 }
 
+// the 'dev' flavor does not need a 'release' variant, it's only for tests
+android.variantFilter { variant ->
+    if(variant.buildType.name.equals('release') && variant.getFlavors().get(0).name.equals('dev')) {
+        variant.setIgnore(true);
+    }
+}
+
 dependencies {
     compile 'com.google.android.support:wearable:1.1.0'
-    compile 'com.google.android.gms:play-services-wearable:7.8.0'
+    compile 'com.google.android.gms:play-services-wearable:8.1.0'
 
     compile 'com.android.support:support-annotations:23.0.1'
 
+    androidTestCompile 'com.squareup.spoon:spoon-client:1.2.0'
     androidTestCompile 'com.android.support.test:runner:0.4.1'
     androidTestCompile 'com.android.support.test:rules:0.4.1'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
